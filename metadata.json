@@ -1,0 +1,15 @@
+{
+  "name": "frozenfoxx-vundle",
+  "version": "0.1.0",
+  "author": "frozenfoxx",
+  "summary": "Puppet module to configure Vundle.",
+  "license": "MIT License",
+  "source": "https://github.com/frozenfoxx/puppet-vundle",
+  "project_page": "https://github.com/frozenfoxx/puppet-vundle",
+  "issues_url": "https://github.com/frozenfoxx/puppet-vundle/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ],
+  "data_provider": null
+}
+
