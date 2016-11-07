@@ -36,7 +36,27 @@ basic use of the module.
 
 ## Usage
 
-Vundle is installed and configured on a per-user basis.  You're going to want to as a result use the defined type, `vundle::installation { 'vundle-[username]': user => "[username]" }`.
+Vundle is installed and configured on a per-user basis.  You're going to want to as a result use the defined type, `vundle::installation { 'vundle-[username]': user => "[username]" }`.  To create many, it's recommend to use a hash in Hiera and use a `create_resources` call to do this, like so:
+__puppet code:__
+```
+$userList = hiera_hash('vundle-users')
+create_resources('vundle::installation', $userList)
+```
+
+__hiera file:__
+```
+---
+vundle-users:
+  'user1':
+    path:     '/home/user1'
+    plugins:
+      - 'tpope/vim-fugitive'
+  'user2':
+    path:     '/home/user2'
+    plugins:
+      - 'tpope/vim-fugitive'
+      - 'L9'
+```
 
 ## Reference
 
