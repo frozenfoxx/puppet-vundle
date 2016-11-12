@@ -26,12 +26,15 @@ define vundle::installation (
     command     => "git clone https://github.com/VundleVim/Vundle.vim.git ${path}/.vim/bundle/Vundle.vim",
     user        => $name,
     cwd         => $path,
+    path        => '/usr/bin/:/bin/',
     creates     => "${path}/.vim/bundle/Vundle.vim",
   }
 
   exec { "vundle-update-${name}":
     command     => "vim +PluginInstall +qall",
     user        => $name,
+    cwd         => $path,
+    path        => '/usr/bin/:/bin/',
     refreshonly => true,
     require     => Exec["vundle-install-${name}"],
   }
