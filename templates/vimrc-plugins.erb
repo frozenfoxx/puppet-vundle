@@ -1,0 +1,10 @@
+" Plugins.  Keep Plugin commands between vundle#begin/end.
+Plugin 'scrooloose/nerdtree'
+<% if @pluginlist.length > 0 -%>
+	<%= @scripts.each do |x| %>
+		Plugin '<%= x -%>'
+	<%= end %>
+<% else -%>
+
+<% end -%>
+
