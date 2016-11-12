@@ -35,7 +35,7 @@ define vundle::installation (
   }
 
   concat { "${name}-vimrc":
-    ensure      => 'file',
+    ensure      => 'present',
     path        => "${path}/.vimrc",
     owner       => $name,
     group       => $name,
