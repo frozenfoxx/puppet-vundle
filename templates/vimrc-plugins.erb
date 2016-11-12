@@ -1,8 +1,8 @@
 " Plugins.  Keep Plugin commands between vundle#begin/end.
 <% if @pluginlist.length > 0 -%>
-	<%= @pluginlist.each do |item| -%>
+	<% @pluginlist.each do |item| -%>
 		Plugin '<%= item -%>'
-	<%= end %>
+	<% end -%>
 <% else -%>
 
 <% end -%>
