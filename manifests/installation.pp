@@ -24,6 +24,8 @@ define vundle::installation (
 
   exec { "vundle-install-${name}":
     command     => "git clone https://github.com/VundleVim/Vundle.vim.git ${path}/.vim/bundle/Vundle.vim",
+    user        => $name,
+    cwd         => $path,
     creates     => "${path}/.vim/bundle/Vundle.vim",
   }
 
