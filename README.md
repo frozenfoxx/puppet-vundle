@@ -10,7 +10,7 @@
 1. [Usage - Configuration options and additional functionality](#usage)
 1. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 1. [Limitations - OS compatibility, etc.](#limitations)
-1. [Development - Guide for contributing to the module](#development)
+1. [Contribute - Guide for contributing to the module](#contribute)
 
 ## Description
 
@@ -30,13 +30,39 @@ While not required due to the complexity of some of the options Hiera's usage is
 
 ### Beginning with vundle
 
-The very basic steps needed for a user to get the module up and running. This
-can include setup steps, if necessary, or it can be an example of the most
-basic use of the module.
+Getting started with Vundle is as simple as including the module with the name of the user desired:
+
+```
+vundle::installation { 'username': }
+```
+
+Additional options can be attached easily:
+```
+vundle::installation { 'username:'
+  plugins => [ 'someuser/someplugin', 'otheruser/someplugin'],
+}
+
+If using Hiera which is highly recommended you'll end up with this:
+
+*puppet code*
+```
+$vundleusers = hiera_hash('vundleusers')
+create_resources('vundle::installation', $vundleusers)
+```
+
+*hiera.yaml*
+```
+---
+vundleusers:
+  user1:
+    plugins:
+      - 'vundlemaker/vundleplugin'
+      - 'vundlemaker2/vundleplugin'
+```
 
 ## Usage
 
-Vundle is installed and configured on a per-user basis.  You're going to want to as a result use the defined type, `vundle::installation { 'vundle-[username]': user => "[username]" }`.  To create many, it's recommend to use a hash in Hiera and use a `create_resources` call to do this, like so:
+Vundle is installed and configured on a per-user basis.  You're going to want to as a result use the defined type, `vundle::installation { 'username': }`.  To create many, it's recommend to use a hash in Hiera and use a `create_resources` call to do this, like so:
 __puppet code:__
 ```
 $userList = hiera_hash('vundle-users')
@@ -48,22 +74,23 @@ __hiera file:__
 ---
 vundle-users:
   'user1':
-    path:     '/home/user1'
     plugins:
-      - 'tpope/vim-fugitive'
+      - 'vundlemaker3/vim-someplugin'
   'user2':
-    path:     '/home/user2'
+    path:     '/home/notnormal/user2'
     plugins:
-      - 'tpope/vim-fugitive'
+      - 'vundlemaker4/vim-otherplugin'
       - 'L9'
 ```
 
+If desired, this plugin can also install Vim easily by setting `viminstall => true`.
+
 ## Reference
 
-Here, include a complete list of your module's classes, types, providers,
-facts, along with the parameters for each. Users refer to this section (thus
-the name "Reference") to find specific details; most users don't read it per
-se.
+* `name`:  used as the username to install Vundle under.
+* `path`:  path to the user's home.  Default:  `/home/${name}`
+* `plugins`:  array of strings for Plugin lines in the `.vimrc`.  Default: `[]`
+* `viminstall`:  allows installing Vim directly.  Default:  `false`
 
 ## Limitations
 
