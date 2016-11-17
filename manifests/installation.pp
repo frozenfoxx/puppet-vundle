@@ -16,11 +16,16 @@
 # Copyright 2016 FOXX.
 #
 define vundle::installation (
+  $viminstall   = false,
   $path         = "/home/${name}",
   $plugins      = []
   ) {
   # Plugins for Vimrc
   $pluginlist   = $plugins
+
+  if $viminstall {
+    package {'vim': }
+  }
 
   exec { "vundle-install-${name}":
     command     => "git clone https://github.com/VundleVim/Vundle.vim.git ${path}/.vim/bundle/Vundle.vim",
