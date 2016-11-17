@@ -1,6 +1,6 @@
 {
   "name": "frozenfoxx-vundle",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "frozenfoxx",
   "summary": "Puppet module to configure Vundle.",
   "license": "MIT License",
