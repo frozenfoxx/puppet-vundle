@@ -36,10 +36,11 @@ define vundle::installation (
   }
 
   exec { "vundle-update-${name}":
-    command     => "vim --not-a-term -c PluginInstall -c qa",
+    command     => "vim --not-a-term +PluginInstall +qall",
     user        => $name,
     cwd         => $path,
     path        => '/usr/bin/:/bin/',
+    environment => ["HOME=${path}"],
     refreshonly => true,
     require     => Exec["vundle-install-${name}"],
   }
