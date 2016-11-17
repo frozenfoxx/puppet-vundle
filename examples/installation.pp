@@ -9,6 +9,7 @@
 # Learn more about module testing here:
 # https://docs.puppet.com/guides/tests_smoke.html
 #
-vundle::installation { 'vundle-user42':
-  user => 'user42'
+vundle::installation { 'user42':
+  plugins    => [ 'rodjek/vim-puppet' ],
+  viminstall => true
 }
