@@ -1,13 +1,7 @@
 # Class: vundle
 # ===========================
 #
-# This is an init require class but should never be manually called
-#
-# Parameters
-# ----------
-#
-# Variables
-# ----------
+# This is an init require class but should never be manually called.
 #
 # Authors
 # -------
