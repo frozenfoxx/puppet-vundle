@@ -41,6 +41,7 @@ Additional options can be attached easily:
 vundle::installation { 'username:'
   plugins => [ 'someuser/someplugin', 'otheruser/someplugin'],
 }
+```
 
 If using Hiera which is highly recommended you'll end up with this:
 
