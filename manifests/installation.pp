@@ -3,9 +3,10 @@
 # An installation of Vundle for a user.
 #
 # === Attributes
-# * name    => user whose installation this is.
-# * path    => path to the user's home directory.
-# * plugins => array of plugins for Vundle.
+# * name       => user whose installation this is.
+# * path       => path to the user's home directory.  Default:  /home/${name}
+# * plugins    => array of plugins for Vundle.
+# * viminstall => whether to install the Vim package or not.  Default:  false.
 #
 # === Authors
 #
@@ -16,9 +17,9 @@
 # Copyright 2016 FOXX.
 #
 define vundle::installation (
-  $viminstall   = false,
   $path         = "/home/${name}",
-  $plugins      = []
+  $plugins      = [],
+  $viminstall   = false
   ) {
   # Plugins for Vimrc
   $pluginlist   = $plugins
