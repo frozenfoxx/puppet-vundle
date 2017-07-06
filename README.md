@@ -47,7 +47,7 @@ If using Hiera which is highly recommended you'll end up with this:
 
 *puppet code*
 ```
-$vundleusers = hiera_hash('vundleusers')
+$vundleusers = lookup('vundleusers', { ‘merge’ => ‘hash’ })
 create_resources('vundle::installation', $vundleusers)
 ```
 
@@ -66,7 +66,7 @@ vundleusers:
 Vundle is installed and configured on a per-user basis.  You're going to want to as a result use the defined type, `vundle::installation { 'username': }`.  To create many, it's recommend to use a hash in Hiera and use a `create_resources` call to do this, like so:
 __puppet code:__
 ```
-$userList = hiera_hash('vundle-users')
+$userList = lookup('vundle-users', { ‘merge’ => ‘hash’ })
 create_resources('vundle::installation', $userList)
 ```
 
