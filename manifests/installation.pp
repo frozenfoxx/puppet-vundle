@@ -37,7 +37,7 @@ define vundle::installation (
   }
 
   exec { "vundle-update-${name}":
-    command     => "vim --not-a-term +PluginInstall +qall",
+    command     => "vim +PluginInstall +qall",
     user        => $name,
     cwd         => $path,
     path        => '/usr/bin/:/bin/',
