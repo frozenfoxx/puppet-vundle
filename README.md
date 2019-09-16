@@ -26,7 +26,6 @@ While not required due to the complexity of some of the options Hiera's usage is
 * Vim
 * Puppet >= 4.0
 * Facter >= 3.0
-* Stdlib module
 
 ### Beginning with vundle
 
