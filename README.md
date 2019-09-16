@@ -3,14 +3,14 @@
 #### Table of Contents
 
 1. [Description](#description)
-1. [Setup - The basics of getting started with vundle](#setup)
+2. [Setup](#setup)
     * [What vundle affects](#what-vundle-affects)
     * [Setup requirements](#setup-requirements)
     * [Beginning with vundle](#beginning-with-vundle)
-1. [Usage - Configuration options and additional functionality](#usage)
-1. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-1. [Limitations - OS compatibility, etc.](#limitations)
-1. [Contribute - Guide for contributing to the module](#contribute)
+3. [Usage](#usage)
+4. [Reference](#reference)
+5. [Limitations](#limitations)
+6. [Contribute](#contribute)
 
 ## Description
 
@@ -103,4 +103,4 @@ This module has only been tested on Ubuntu systems.  It will likely work with ot
 * Create a topic branch
 * Improve/fix
 * Push new topic branch
-* Submit a PR
+* Submit a MR
