@@ -8,14 +8,6 @@
 # * plugins    => array of plugins for Vundle.
 # * viminstall => whether to install the Vim package or not.  Default:  false.
 #
-# === Authors
-#
-# * FOXX <mailto:siliconfoxx@gmail.com>
-#
-# === Copyright
-#
-# Copyright 2016 FOXX.
-#
 define vundle::installation (
   $path         = "/home/${name}",
   $plugins      = [],
@@ -28,6 +20,7 @@ define vundle::installation (
     package {'vim': }
   }
 
+  # Install Vundle for a user
   exec { "vundle-install-${name}":
     command     => "git clone https://github.com/VundleVim/Vundle.vim.git ${path}/.vim/bundle/Vundle.vim",
     user        => $name,
@@ -36,6 +29,7 @@ define vundle::installation (
     creates     => "${path}/.vim/bundle/Vundle.vim",
   }
 
+  # Update a Vundle install for a user
   exec { "vundle-update-${name}":
     command     => "vim --not-a-term +PluginInstall +qall",
     user        => $name,
@@ -46,6 +40,7 @@ define vundle::installation (
     require     => Exec["vundle-install-${name}"],
   }
 
+  # Build the vimrc for a user
   concat { "${name}-vimrc":
     ensure      => 'present',
     path        => "${path}/.vimrc",

@@ -1,15 +1,34 @@
 {
   "name": "frozenfoxx-vundle",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "frozenfoxx",
   "summary": "Puppet module to configure Vundle.",
-  "license": "MIT License",
-  "source": "https://github.com/frozenfoxx/puppet-vundle",
-  "project_page": "https://github.com/frozenfoxx/puppet-vundle",
-  "issues_url": "https://github.com/frozenfoxx/puppet-vundle/issues",
+  "license": "Apache-2.0",
+  "source": "https://gitlab.com/frozenfoxx/puppet-vundle",
+  "project_page": "https://gitlab.com/frozenfoxx/puppet-vundle",
+  "issues_url": "https://gitlab.com/frozenfoxx/puppet-vundle/issues",
   "dependencies": [
     {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"},
     {"name":"puppetlabs-git","version_requirement":">= 0.5.0"}
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "16.04",
+        "18.04"
+      ],
+      "operatingsystem": "Darwin",
+      "operatingsystemrelease": [
+        "16"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.10.0 < 7.0.0"
+    }
   ],
   "data_provider": null
 }
