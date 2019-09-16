@@ -9,12 +9,12 @@
 # * viminstall => whether to install the Vim package or not.  Default:  false.
 #
 define vundle::installation (
-  $path         = "/home/${name}",
-  $plugins      = [],
-  $viminstall   = false
+  $path       = "/home/${name}",
+  $plugins    = [],
+  $viminstall = false
   ) {
   # Plugins for Vimrc
-  $pluginlist   = $plugins
+  $pluginlist = $plugins
 
   if $viminstall {
     package {'vim': }
@@ -22,11 +22,11 @@ define vundle::installation (
 
   # Install Vundle for a user
   exec { "vundle-install-${name}":
-    command     => "git clone https://github.com/VundleVim/Vundle.vim.git ${path}/.vim/bundle/Vundle.vim",
-    user        => $name,
-    cwd         => $path,
-    path        => '/usr/bin/:/bin/',
-    creates     => "${path}/.vim/bundle/Vundle.vim",
+    command => "git clone https://github.com/VundleVim/Vundle.vim.git ${path}/.vim/bundle/Vundle.vim",
+    user    => $name,
+    cwd     => $path,
+    path    => '/usr/bin/:/bin/',
+    creates => "${path}/.vim/bundle/Vundle.vim",
   }
 
   # Update a Vundle install for a user
@@ -42,30 +42,30 @@ define vundle::installation (
 
   # Build the vimrc for a user
   concat { "${name}-vimrc":
-    ensure      => 'present',
-    path        => "${path}/.vimrc",
-    owner       => $name,
-    group       => $name,
-    mode        => '0644',
-    require     => Exec["vundle-install-${name}"],
-    notify      => Exec["vundle-update-${name}"],
+    ensure  => 'present',
+    path    => "${path}/.vimrc",
+    owner   => $name,
+    group   => $name,
+    mode    => '0644',
+    require => Exec["vundle-install-${name}"],
+    notify  => Exec["vundle-update-${name}"],
   }
 
   concat::fragment { "${name}-vimrc-header":
-    target      => "${name}-vimrc",
-    order       => 0,
-    content     => template('vundle/vimrc-header.erb'),
+    target  => "${name}-vimrc",
+    order   => 0,
+    content => template('vundle/vimrc-header.erb'),
   }
 
   concat::fragment { "${name}-vimrc-plugins":
-    target      => "${name}-vimrc",
-    order       => 10,
-    content     => template('vundle/vimrc-plugins.erb'),
+    target  => "${name}-vimrc",
+    order   => 10,
+    content => template('vundle/vimrc-plugins.erb'),
   }
 
   concat::fragment { "${name}-vimrc-footer":
-    target      => "${name}-vimrc",
-    order       => 20,
-    content     => template('vundle/vimrc-footer.erb'),
+    target  => "${name}-vimrc",
+    order   => 20,
+    content => template('vundle/vimrc-footer.erb'),
   }
 }
