@@ -4,9 +4,9 @@
   "author": "frozenfoxx",
   "summary": "Puppet module to configure Vundle.",
   "license": "Apache-2.0",
-  "source": "https://gitlab.com/frozenfoxx/puppet-vundle",
-  "project_page": "https://gitlab.com/frozenfoxx/puppet-vundle",
-  "issues_url": "https://gitlab.com/frozenfoxx/puppet-vundle/issues",
+  "source": "https://github.com/frozenfoxx/puppet-vundle",
+  "project_page": "https://github.com/frozenfoxx/puppet-vundle",
+  "issues_url": "https://github.com/frozenfoxx/puppet-vundle/issues",
   "dependencies": [
     {
       "name": "puppetlabs-git",
