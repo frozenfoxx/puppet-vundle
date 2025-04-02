@@ -102,4 +102,4 @@ This module has only been tested on Ubuntu systems.  It will likely work with ot
 * Create a topic branch
 * Improve/fix
 * Push new topic branch
-* Submit a MR
+* Submit a PR

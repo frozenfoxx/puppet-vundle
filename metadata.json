@@ -1,6 +1,6 @@
 {
   "name": "frozenfoxx-vundle",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "author": "frozenfoxx",
   "summary": "Puppet module to configure Vundle.",
   "license": "Apache-2.0",
